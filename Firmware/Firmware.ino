@@ -16,38 +16,8 @@
    Serial Reprogramming
    Mouse Controls
 */
-class matrixScan {
-  public:
-  //array for debouncing/storing state
-  int **matrixState = NULL;
-  //values used to determine if a switch is on or off
-  int debounceOn = 5;
-  int debounceOff = -5;
-  //Constructor
-  matrixScan(int colCount, int rowCount, int colArr[], int rowArr[]) {
-    //set up driven pins
-    for (int i = 0; i < colCount; i++) {
-      pinMode(colArr[i], OUTPUT);
-    }
-    //setup read pins
-    for (int i = 0; i < rowCount; i++) {
-      pinMode(rowArr[i], INPUT_PULLUP);
-    }
+#include "matrixScan.hpp"
 
-    //initialize matrix array for tracking state
-//    matrixState = new int[rowCount][7];
-//    for(int i=0;i<rowCount;i++){
-//      for(int j=0;j<colCount;j++){
-//        matrixState[i][j]=0;
-//      }
-//    }
-  }//end constructor
-
-  //scan matrix for state changes
-  void scan(){
-    
-  }
-};
 const int rows = 10;
 const int cols = 10;
 int rowPins[rows] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; //read pins
