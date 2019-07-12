@@ -18,23 +18,16 @@
 */
 #include "matrixScan.hpp"
 
-const int rows = 10;
-const int cols = 10;
-int rowPins[rows] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; //read pins
-int colPins[cols] = {11, 12, 13, 14, 15, 16, 17, 18, 19, 20}; //driven pins, normally 1, 0 to scan
+const int rows = 3;
+const int cols = 3;
+int rowPins[rows] = {1, 2, 3}; //read pins
+int colPins[cols] = {4, 5, 6}; //driven pins, normally 1, 0 to scan
 matrixScan matrix1 = matrixScan(cols,rows,colPins,rowPins);
 
 int keyMatrix1[rows][cols] = {//associates the keys in board with the scan matrix
-  {KEY_A, KEY_B},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {}
+  {KEY_1, KEY_2, KEY_3},
+  {KEY_4, KEY_5, KEY_6},
+  {KEY_7, KEY_8, KEY_9}
 };
 
 void setup() {
@@ -44,6 +37,3 @@ void loop() {
   // put your main code here, to run repeatedly:
   matrix1.scan();
 }
-
-
-
