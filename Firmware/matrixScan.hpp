@@ -13,6 +13,10 @@
 
 class matrixScan {
 private:
+  int colCount;
+  int rowCount;
+  int *colArr;
+  int *rowArr;
 public:
   //array for debouncing/storing state
   int **matrixState;
@@ -20,7 +24,7 @@ public:
   int debounceOn;
   int debounceOff;
   //Constructor
-  matrixScan(int colCount, int rowCount, int colArr[], int rowArr[]);
+  matrixScan(int colCountA, int rowCountA, int colArrA[], int rowArrA[]);
 
   //scan matrix for state changes
   int scan();
