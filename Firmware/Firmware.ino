@@ -6,8 +6,8 @@
 
    Feature List:
    Todo:
-   Matrix scanning
-   Keypress reporting
+ x Matrix scanning
+ x Keypress reporting
    Layers
    Serial Comms
    Serial Interfacing
@@ -18,6 +18,9 @@
 */
 #include "matrixScan.hpp"
 
+unsigned long startTime;
+unsigned long elapsedTime;
+unsigned long scanTime;
 const int rows = 10;
 const int cols = 10;
 int rowPins[rows] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; //read pins
@@ -45,7 +48,9 @@ void setup() {
 
 void loop() {
   //check matrix for key movements
+  startTime = micros();
   matrix1.scan();
+  scanTime = micros()-startTime;
   //read array status
   for(int i=0;i<rows;i++){
     for(int j=0;j<cols;j++){
@@ -64,6 +69,10 @@ void loop() {
         //Serial.println("Key released");
       }
     }
-    //delay(100);
   }
+  elapsedTime = micros()-startTime;
+  Serial.print("Scan Time: ");
+  Serial.println(scanTime);
+  Serial.print("Total Time: ");
+  Serial.println(elapsedTime);
 }

@@ -6,8 +6,9 @@
 
    Feature List:
    Todo:
-   Matrix scanning
-   Keypress reporting
+ X Matrix scanning
+ O Keypress reporting
+   Destructor to free memory allocated by new
 
 */
 #include "matrixScan.hpp"
@@ -55,6 +56,12 @@ matrixScan::matrixScan(int colCountA, int rowCountA, int colArrA[], int rowArrA[
         }
       }
 }//end constructor
+
+matrixScan::~matrixScan(){
+  delete[] colArr;
+  delete[] rowArr;
+  delete[] matrixState;
+}
 
 //scan matrix for state changes
 int matrixScan::scan() {

@@ -25,6 +25,7 @@ public:
   int debounceOff;
   //Constructor
   matrixScan(int colCountA, int rowCountA, int colArrA[], int rowArrA[]);
+  ~matrixScan();
 
   //scan matrix for state changes
   int scan();
