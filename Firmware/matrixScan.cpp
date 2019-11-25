@@ -6,6 +6,7 @@
 
    Feature List:
    Todo:
+   rewrite to activate key on press, then lockout during debounce period to improve response
  X Matrix scanning
  O Keypress reporting
    Destructor to free memory allocated by new
